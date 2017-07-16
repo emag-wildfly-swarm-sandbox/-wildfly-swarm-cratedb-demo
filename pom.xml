@@ -18,6 +18,8 @@
 
     <version.wildfly-swarm>${project.version}</version.wildfly-swarm>
     <version.crate-jdbc>2.1.7</version.crate-jdbc>
+    <version.httpclient>4.3.4</version.httpclient>
+    <version.gson>2.5</version.gson>
 
     <failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
@@ -63,6 +65,17 @@
       <groupId>io.crate</groupId>
       <artifactId>crate-jdbc</artifactId>
       <version>${version.crate-jdbc}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${version.gson}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${version.httpclient}</version>
     </dependency>
 
   </dependencies>

@@ -6,6 +6,8 @@ WildFly Swarm CrateDB Demo
 
 * Install CrateDB on local
   * https://crate.io/docs/crate/reference/installation.html
+* Setup data
+  * https://github.com/crate/crate-sample-apps#setup
 
 ## Build & Run
 

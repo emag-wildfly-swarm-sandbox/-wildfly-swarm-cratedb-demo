@@ -17,3 +17,9 @@ swarm:
   ee:
     default-bindings-service:
       datasource: java:jboss/datasources/MyDS
+crate:
+  host: localhost
+  http:
+    port: 4200
+  psql:
+    port: 5432
