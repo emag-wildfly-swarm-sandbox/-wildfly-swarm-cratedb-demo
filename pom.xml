@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>wildfly-swarm</groupId>
+  <artifactId>wildfly-swarm-cratedb-demo</artifactId>
+  <version>2017.7.0</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+
+    <version.wildfly-swarm>${project.version}</version.wildfly-swarm>
+    <version.crate-jdbc>2.1.7</version.crate-jdbc>
+
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>bintray</id>
+      <name>bintray</name>
+      <url>http://dl.bintray.com/crate/crate</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>bom-all</artifactId>
+        <version>${version.wildfly-swarm}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>jaxrs</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>cdi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>datasources</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crate</groupId>
+      <artifactId>crate-jdbc</artifactId>
+      <version>${version.crate-jdbc}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-plugin</artifactId>
+        <version>${version.wildfly-swarm}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
